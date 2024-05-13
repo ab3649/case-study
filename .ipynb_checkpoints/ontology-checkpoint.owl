@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+]>
+<rdf:RDF xmlns="http://www.semanticweb.org/ontology#" 
+     xml:base="http://www.semanticweb.org/ontology"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+
+    <!-- Classes -->
+    <owl:Class rdf:about="#WarehouseScene"/>
+    <owl:Class rdf:about="#IndoorWarehouse"/>
+    <owl:Class rdf:about="#OutdoorWarehouse"/>
+    <owl:Class rdf:about="#NeuralNetworkExplanation"/>
+    <owl:Class rdf:about="#BackgroundKnowledge"/>
+    <owl:Class rdf:about="#Image"/>
+    <owl:Class rdf:about="#Object"/>
+    <owl:Class rdf:about="#Scene"/>
+
+    <!-- Object properties -->
+    <owl:ObjectProperty rdf:about="#contains"/>
+    <owl:ObjectProperty rdf:about="#hasBackgroundKnowledge"/>
+    <owl:ObjectProperty rdf:about="#hasInputImage"/>
+    <owl:ObjectProperty rdf:about="#identifiesObject"/>
+    <owl:ObjectProperty rdf:about="#depictsScene"/>
+
+    <!-- Data properties -->
+    <owl:DatatypeProperty rdf:about="#hasName"/>
+    <owl:DatatypeProperty rdf:about="#hasType"/>
+
+    <!-- Individuals -->
+    <owl:NamedIndividual rdf:about="#Explanation1"/>
+    <owl:NamedIndividual rdf:about="#Explanation2"/>
+    <owl:NamedIndividual rdf:about="#BackgroundKnowledge1"/>
+    <owl:NamedIndividual rdf:about="#BackgroundKnowledge2"/>
+    <owl:NamedIndividual rdf:about="#InputImage1"/>
+    <owl:NamedIndividual rdf:about="#InputImage2"/>
+    <owl:NamedIndividual rdf:about="#IdentifiedObject1"/>
+    <owl:NamedIndividual rdf:about="#IdentifiedObject2"/>
+    <owl:NamedIndividual rdf:about="#DepictedScene1"/>
+    <owl:NamedIndividual rdf:about="#DepictedScene2"/>
+
+    <!-- ABox assertions -->
+    <rdf:Description rdf:about="#Explanation1">
+        <hasBackgroundKnowledge rdf:resource="#BackgroundKnowledge1"/>
+        <hasInputImage rdf:resource="#InputImage1"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#Explanation2">
+        <hasBackgroundKnowledge rdf:resource="#BackgroundKnowledge2"/>
+        <hasInputImage rdf:resource="#InputImage2"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#InputImage1">
+        <identifiesObject rdf:resource="#IdentifiedObject1"/>
+        <depictsScene rdf:resource="#DepictedScene1"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#InputImage2">
+        <identifiesObject rdf:resource="#IdentifiedObject2"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="#IdentifiedObject1">
+        <hasName rdf:datatype="&xsd;string">Tree</hasName>
+        <hasType rdf:datatype="&xsd;string">OutdoorObject</hasType>
+    </rdf:Description>
+    <rdf:Description rdf:about="#DepictedScene1">
+        <hasName rdf:datatype="&xsd;string">OutdoorWarehouse</hasName>
+    </rdf:Description>
+
+</rdf:RDF>
